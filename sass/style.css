@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 16px;
+  font-family: "Josefin Sans", sans-serif;
+  color: rgb(15, 14, 14);
+  width: 100%;
+  min-height: 100%;
+}
+
+#map {
+    height: 100%;
+}
+
+body {
+  padding: 20px;
+  background-color: rgb(144, 174, 243);
+}
+
+section {
+  background-color: rgb(219, 162, 30);
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+  border: 1px solid rgb(115, 83, 8);
+  border-radius: 10px;
+}/*# sourceMappingURL=style.css.map */
