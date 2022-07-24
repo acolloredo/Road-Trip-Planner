@@ -1,0 +1,35 @@
+$default-font-color: rgb(15, 14, 14);
+$background-color: rgb(144, 174, 243);
+$container-bgcolor: rgb(219, 162, 30);
+$container-border-color: rgb(115, 83, 8);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    font-size: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: $default-font-color;
+    width: 100%;
+    min-height: 100%;
+    @include mq(768px){
+        font-size: 22pxl
+    }
+}
+
+body {
+    padding: 20px;
+    background-color: $background-color;
+}
+
+section {
+    background-color: $container-bgcolor;
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    border: 1px solid $container-border-color;
+    border-radius: 10px;
+}
