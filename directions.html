@@ -22,17 +22,17 @@
     <div class="jumbotron jumbotron-fluid text-center">
        <h1 class="display-6">Enter your <font color="#DC1C1F"><i>Origin</i></font> and <font color="#DC1C1F"><i>Destination</i></font>:</h1>
       <div class="start-dest-input">
-	   	<form class="form-inline my-2 my-lg-0 start-dest-input">
-       	<input class="form-control mr-sm-2" type="search" placeholder="Origin" aria-label="Origin">
-	   	<input class="form-control mr-sm-2" type="search" placeholder="Destination" aria-label="Destination">
-       	<button class="btn btn-danger my-2 my-sm-0" type="submit">Go!</button>
+	   	  <form class="form-inline my-2 my-lg-0 start-dest-input">
+       	  <input class="form-control mr-sm-2" type="search" id="origin" aria-label="Origin">
+	   	    <input class="form-control mr-sm-2" type="search" id="destination" aria-label="Destination">
+       	  <button class="btn btn-danger my-2 my-sm-0" type="submit" id="submit-btn">Go!</button>
        	</form>
    	   </div>
     </div>
     <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLBYjCOpb2P7fbT93HaH73wOMMcY6LivY&callback=initMap&v=weekly"
     defer></script>
-
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
     <script src="js/jquery-3.4.1.min.js"></script>
 
