@@ -1,12 +1,27 @@
-let map, infoWindow;
+let map, infoWindow, directionsService, directionsRenderer;
 let orig, dest;
+let autocompleteOrig, autocompleteDest;
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 10,
-  });
+  let mapOptions = {
+    center : {lat:0.0, lng: 0.0},
+    zoom : 10,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+  }
+
+  var searchOptions = {
+    types : ["(cities)"]
+  }
+  
+  map = new google.maps.Map(document.getElementById("map"), mapOptions);
   infoWindow = new google.maps.InfoWindow();
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
+
+  autocompleteOrig = new google.maps.places.Autocomplete(document.getElementById("origin"), searchOptions);
+  autocompleteDest = new google.maps.places.Autocomplete(document.getElementById("destination"), searchOptions);
+
+  directionsRenderer.setMap(map)
 }
 
 function handleLocationSuccess(position) {
@@ -41,8 +56,32 @@ function getOrigDestVal() {
   dest = document.getElementById("destination").value;
   console.log(orig, dest);
 }
+ 
+function getRoute() {
+  console.log("blah");
+  getOrigDestVal();
+  let routeInput = {
+    origin : orig,
+    destination : dest,
+    travelMode : google.maps.TravelMode.DRIVING,
+    unitSystem : google.maps.UnitSystem.IMPERIAL
+  }
+
+  directionsService.route(routeInput, (result, status) => {
+    if (status === google.maps.DirectionsStatus.OK) {
+      console.log("succeded");
+      //let output = document.querySelector('#output');
+      //output.innerHTML = "<div class='alert-info'>From: " + orig + ".<br />To: " + dest + ".<br /> Driving distance: " + result.routes[0].legs[0].distance.text + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ".</div>";
+      directionsRenderer.setDirections(result);
+    } else {
+      console.log("fail");
+      directionsRenderer.setDirections({routes: []});
+      //setToCurrentLatLng();
+    }
+  })
+}
 
 
 window.initMap = initMap;
 window.onload = setToCurrentLatLng;
-document.getElementById("submit-btn").addEventListener("click", getOrigDestVal)
+document.getElementById("submit-btn").addEventListener("click", getRoute)

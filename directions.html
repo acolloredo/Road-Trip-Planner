@@ -29,9 +29,12 @@
        	</form>
    	   </div>
     </div>
-    <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLBYjCOpb2P7fbT93HaH73wOMMcY6LivY&callback=initMap&v=weekly"
-    defer></script>
+    <div id="mapBox">
+      <div id="map"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLBYjCOpb2P7fbT93HaH73wOMMcY6LivY&callback=initMap&v=weekly&libraries=places"
+      defer></script>
+    </div>
+    <div id="output"></div>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
     <script src="js/jquery-3.4.1.min.js"></script>
