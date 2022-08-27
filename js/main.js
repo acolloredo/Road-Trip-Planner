@@ -67,7 +67,7 @@ function getRoute() {
     unitSystem : google.maps.UnitSystem.IMPERIAL
   }
 
-  directionsService.route(routeInput, (result, status) => {
+  directionsService.route(routeInput, function (result, status) {
     if (status === google.maps.DirectionsStatus.OK) {
       console.log("succeded");
       //let output = document.querySelector('#output');
